@@ -32,13 +32,9 @@ export async function action({request}){
       body: JSON.stringify(authData)
    });
 
-   console.log(response);
-
    if(response.status === 422 || response.status === 401){
      return response;
    }
-
-   console.log(response);
    
    if(!response.ok){
     throw json({message: "Could not authenticate user."},{status: 500})
